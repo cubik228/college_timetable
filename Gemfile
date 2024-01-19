@@ -21,6 +21,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 group :development, :test do
+  gem 'bootsnap', require: false
   gem 'database_cleaner'
   gem 'factory_bot'
   gem 'pry'
@@ -28,9 +29,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'rspec-json_expectations'
   gem 'rspec-rails'
-  gem 'bootsnap', require: false
 end
-
 
 group :development do
   gem 'listen'
@@ -39,12 +38,10 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
   gem 'db-query-matchers'
   gem 'json_spec'
   gem 'launchy'
   gem 'rubocop', require: false
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'
 end
