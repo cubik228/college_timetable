@@ -6,7 +6,7 @@ class CreateLessons < ActiveRecord::Migration[7.1]
       t.string :subject
       t.integer :teacher_id
       t.integer :day_on_wek
-
+      t.integer :group_id
       t.timestamps
     end
   end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,29 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_120_090_517) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_20_090517) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'groups', force: :cascade do |t|
-    t.string 'name'
-    t.integer 'teacher_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'lessons', force: :cascade do |t|
-    t.string 'subject'
-    t.integer 'teacher_id'
-    t.integer 'day_on_wek'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "lessons", force: :cascade do |t|
+    t.string "subject"
+    t.integer "teacher_id"
+    t.integer "day_on_wek"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'teachers', force: :cascade do |t|
-    t.string 'name'
-    t.string 'room'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "teachers", force: :cascade do |t|
+    t.string "name"
+    t.string "room"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
 end

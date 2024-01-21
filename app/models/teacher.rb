@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class Teacher < ApplicationRecord
-  belongs_to :group
-  belongs_to :teacher
+  has_many :lessons
+  has_many :groups, through: :lessons
 end
