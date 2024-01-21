@@ -23,7 +23,8 @@ gem 'webpacker'
 group :development, :test do
   gem 'bootsnap', require: false
   gem 'database_cleaner'
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry'
   gem 'rails-controller-testing'
   gem 'rb-readline'
