@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: college_timetable_development
+  pool: 5
+  username: matvey
+  password: matvey
+  host: localhost
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: college_timetable_test
+  pool: 5
+  username: matvey
+  password: matvey
+  host: localhost
+  port: 5432
