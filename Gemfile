@@ -19,6 +19,7 @@ gem 'turbolinks'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+gem 'devise'
 
 group :development, :test do
   gem 'bootsnap', require: false
