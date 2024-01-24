@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <!-- device -->
+    <%= render 'include/auth/auth_header' %>
+    <!-- device -->
+
+    <div>
+      <%= render 'include/main/notification' %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
+
