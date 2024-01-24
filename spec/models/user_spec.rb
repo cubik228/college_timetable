@@ -9,6 +9,16 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'Validations in model' do
+    context 'has Validations for email' do
+    it { is_expected.to  validate_presence_of(:email) }
+    end
+    
+    context 'has Validations for encrypted_password' do
+      it { is_expected.to  validate_presence_of(:encrypted_password) }
+    end
+  end
+
   describe 'Validations' do
     context 'when has attributes' do
       it 'is valid with valid attributes' do
