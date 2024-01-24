@@ -15,24 +15,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_191348) do
   enable_extension "plpgsql"
 
   create_table "groups", force: :cascade do |t|
-    t.string "name" ,null: false
+    t.string "name", null: false
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "subject",null: false
+    t.string "subject", null: false
     t.integer "teacher_id"
-    t.integer "day_on_wek",null: false
+    t.integer "day_on_wek", null: false
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "name",null: false
-    t.string "room",null: false
+    t.string "name", null: false
+    t.string "room", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
