@@ -3,8 +3,8 @@ development:
   encoding: unicode
   database: college_timetable_development
   pool: 5
-  username: matvey
-  password: matvey
+  username: sgnwow
+  password: 2101
   host: localhost
   port: 5432
 
@@ -13,7 +13,7 @@ test:
   encoding: unicode
   database: college_timetable_test
   pool: 5
-  username: matvey
-  password: matvey
+  username: sgnwow
+  password: 2101
   host: localhost
   port: 5432
