@@ -10,31 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_191348) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_26_181118) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "groups", force: :cascade do |t|
-    t.string "name" ,null: false
+    t.string "name"
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "subject",null: false
+    t.string "subject"
     t.integer "teacher_id"
-    t.integer "day_on_wek",null: false
+    t.integer "day_on_wek"
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "timetable_id"
+    t.index ["timetable_id"], name: "index_lessons_on_timetable_id"
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "name",null: false
-    t.string "room",null: false
+    t.string "name"
+    t.string "room"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "lesson_id"
+    t.index ["lesson_id"], name: "index_teachers_on_lesson_id"
+  end
+
+  create_table "timetables", force: :cascade do |t|
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "group_id"
   end
 
   create_table "users", force: :cascade do |t|
