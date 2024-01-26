@@ -5,6 +5,7 @@ class CreateTeachers < ActiveRecord::Migration[7.1]
     create_table :teachers do |t|
       t.string :name, null: false
       t.string :room, null: false
+      t.integer :lesson_id
 
       t.timestamps
     end
