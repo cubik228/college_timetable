@@ -13,5 +13,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe MainHelper, type: :helper do
-  #ending "add some examples to (or delete) #{__FILE__}"
+  # ending "add some examples to (or delete) #{__FILE__}"
 end

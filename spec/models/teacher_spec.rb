@@ -8,14 +8,14 @@ RSpec.describe Teacher, type: :model do
       expect(build(:teacher)).to be_valid
     end
   end
-  
+
   describe 'Validations in model' do
     context 'has Validations for name' do
-    it { is_expected.to  validate_presence_of(:name) }
+      it { is_expected.to validate_presence_of(:name) }
     end
 
     context 'has Validations for room' do
-      it { is_expected.to  validate_presence_of(:room) }
+      it { is_expected.to validate_presence_of(:room) }
     end
   end
 
