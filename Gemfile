@@ -7,6 +7,8 @@ ruby '3.0.0'
 gem 'activestorage'
 gem 'bootstrap-sass'
 gem 'coffee-rails'
+gem 'devise'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'oj'
@@ -18,8 +20,6 @@ gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'webpacker'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
-gem 'devise'
 
 group :development, :test do
   gem 'bootsnap', require: false

@@ -11,7 +11,7 @@ RSpec.describe Group, type: :model do
 
   describe 'Validations in model' do
     context 'has Validations for name' do
-    it { is_expected.to  validate_presence_of(:name) }
+      it { is_expected.to validate_presence_of(:name) }
     end
   end
   describe 'Validations' do

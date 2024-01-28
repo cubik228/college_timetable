@@ -11,11 +11,11 @@ RSpec.describe Lesson, type: :model do
 
   describe 'Validations in model' do
     context 'has Validations for subject' do
-    it { is_expected.to  validate_presence_of(:subject) }
+      it { is_expected.to validate_presence_of(:subject) }
     end
 
     context 'has Validations for day_on_wek' do
-      it { is_expected.to  validate_presence_of(:day_on_wek) }
+      it { is_expected.to validate_presence_of(:day_on_wek) }
     end
   end
 
