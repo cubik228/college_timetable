@@ -8,29 +8,59 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Teacher.destroy_all
+
+User.destroy_all
 
 5.times do |index|
-  Teacher.create!(name: Faker::Name.name,
-                  room: Faker::House.room)
+  User.create!(email: Faker::Internet.email,
+               password: Faker::Internet.password,
+               reset_password_token: Faker::Internet.domain_word,
+               reset_password_sent_at: Faker::Date.forward(days: 23),
+               remember_created_at: Faker::Date.forward(days: 23))
 end
-puts "Created #{Teacher.count} teachers"
+
+puts "Created #{User.count} users"
 
 Group.destroy_all
 
 5.times do |index|
-  Group.create!(name: Faker::Name.name,
-                teacher_id: Teacher.pluck(:id).sample)
+  Group.create!(name: Faker::IDNumber.valid,
+                user_id: User.pluck(:id).sample)
 end
 puts "Created #{Group.count} groups"
+
+Timetable.destroy_all
+
+5.times do |index|
+  Timetable.create!(number: Faker::IDNumber.invalid,
+                    group_id: Group.pluck(:id).sample)
+end
+
+puts "Created #{Timetable.count} timetables"
 
 Lesson.destroy_all
 
 5.times do |index|
   Lesson.create!(subject: Faker::Science.science(:formal, :applied),
-                 teacher_id: Teacher.pluck(:id).sample,
-                 day_on_wek: Faker::Date.forward(days: 23),
-                 group_id: Group.pluck(:id).sample)
+                 timetable_id: Timetable.pluck(:id).sample,
+                 day_on_wek: Faker::Number.between(from: 0, to: 6))
 end
 
 puts "Created #{Lesson.count} lessons"
+
+
+Teacher.destroy_all
+
+5.times do |index|
+  Teacher.create!(name: Faker::Name.name,
+                  room: Faker::House.room,
+                  lesson_id: Lesson.pluck(:id).sample)
+end
+puts "Created #{Teacher.count} teachers"
+
+
+
+
+
+
+
