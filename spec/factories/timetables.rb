@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :timetable do
-    number { 1 }
+    number { rand(1..10) }
+    group
   end
 end

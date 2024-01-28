@@ -8,23 +8,26 @@ RSpec.describe Teacher, type: :model do
       expect(build(:teacher)).to be_valid
     end
   end
-
-  describe 'Validations in model' do
-    context 'has Validations for name' do
-      it { is_expected.to validate_presence_of(:name) }
+  context 'validete' do
+    it 'is valid with valid attributes' do
+      lesson = Lesson.create(subject: 'Math', day_on_wek: 1)
+      teacher = Teacher.new(name: 'Mr. Smith', room: '101', lesson: lesson)
+      expect(teacher).to be_valid
     end
-
-    context 'has Validations for room' do
-      it { is_expected.to validate_presence_of(:room) }
+  
+    it 'is not valid without a name' do
+      teacher = Teacher.new(name: nil)
+      expect(teacher).to_not be_valid
+    end
+  
+    it 'is not valid without a room' do
+      teacher = Teacher.new(room: nil)
+      expect(teacher).to_not be_valid
     end
   end
-
-  describe 'Validations' do
-    context 'when has attributes' do
-      it 'is valid with valid attributes' do
-        teacher = build(:teacher)
-        expect(teacher).to be_valid
-      end
-    end
+  context 'communications' do
+    it { should belong_to(:lesson) }
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:room) }
   end
 end

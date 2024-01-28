@@ -8,25 +8,21 @@ RSpec.describe Group, type: :model do
       expect(build(:group)).to be_valid
     end
   end
+  context 'validete' do
+    it 'is valid with valid attributes' do
+      user = User.create(email: 'test@example.com', encrypted_password: 'password')
+      group = Group.new(name: 'Group 1', user: user)
+      expect(group).to be_valid
+    end
 
-  describe 'Validations in model' do
-    context 'has Validations for name' do
-      it { is_expected.to validate_presence_of(:name) }
+    it 'is not valid without a name' do
+      group = Group.new(name: nil)
+      expect(group).to_not be_valid
     end
   end
-  describe 'Validations' do
-    context 'when has attributes' do
-      it 'is valid with valid attributes' do
-        group = build(:group)
-        expect(group).to be_valid
-      end
-    end
-
-    context 'when missing attributes' do
-      it 'is not valid without a teacher_id' do
-        group = build(:group, teacher_id: nil)
-        expect(group).not_to be_valid
-      end
-    end
+  context 'communications' do
+    it { should belong_to(:user) }
+    it { should have_one(:timetable) }
+    it { should validate_presence_of(:name) }
   end
 end

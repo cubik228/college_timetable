@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :group do
-    name { Faker::Lorem.sentence(word_count: 10) }
-    teacher
+    name { Faker::Lorem.word }
+    user
   end
 end

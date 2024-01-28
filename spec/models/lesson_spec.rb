@@ -8,23 +8,28 @@ RSpec.describe Lesson, type: :model do
       expect(build(:lesson)).to be_valid
     end
   end
-
-  describe 'Validations in model' do
-    context 'has Validations for subject' do
-      it { is_expected.to validate_presence_of(:subject) }
+  context 'validete' do
+    it 'is valid with valid attributes' do
+      timetable = Timetable.create(number: 1)
+      lesson = Lesson.new(subject: 'Math', day_on_wek: 1, timetable: timetable)
+      expect(lesson).to be_valid
     end
-
-    context 'has Validations for day_on_wek' do
-      it { is_expected.to validate_presence_of(:day_on_wek) }
+  
+    it 'is not valid without a subject' do
+      lesson = Lesson.new(subject: nil)
+      expect(lesson).to_not be_valid
     end
-  end
-
-  describe 'Validations' do
-    context 'when has attributes' do
-      it 'is valid with valid attributes' do
-        group = build(:lesson)
-        expect(group).to be_valid
-      end
+  
+    it 'is not valid without a day_on_wek' do
+      lesson = Lesson.new(day_on_wek: nil)
+      expect(lesson).to_not be_valid
     end
   end
+  context 'communications' do
+    it { should belong_to(:timetable) }
+    it { should have_many(:teachers) }
+    it { should validate_presence_of(:subject) }
+    it { should validate_presence_of(:day_on_wek) }
+  end
+
 end
